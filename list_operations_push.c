@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:02 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/08 11:05:02 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/19 09:52:20 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,11 @@
 
 void	pb(t_stack *lista, t_stack *listb)
 {
-	if (listb == NULL)
-	{
-		lista->next->previous = NULL;
-		lista->next = NULL;
-		lista->previous = NULL;
-		listb = lista;
-	}
-	else
-	{
-		lista->next->previous = NULL;
-		listb->previous = lista;
-		lista->next = listb;
-		lista->previous = NULL;
-	}	
+
+	lista->next->previous = NULL;
+	listb->previous = lista;
+	lista->next = listb;
+	lista->previous = NULL;
 }
 
 void	pa(t_stack *listb, t_stack *lista)

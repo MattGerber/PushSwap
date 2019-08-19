@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:50:20 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/08 11:19:03 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/19 10:01:44 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 
 typedef struct		s_stack
 { 
-	// int				weight;
+	int				head;
+	int				weight;
  	int				value;
  	struct s_stack	*next;
  	struct s_stack	*previous;
 }					t_stack;
 
+// void				print_stacks(t_stack *stacka, t_stack *stackb);
 void				print_stack(t_stack	*start);
 void				clean_stack(t_stack *start);
 t_stack				*make_new_node(t_stack *previous, int value);
