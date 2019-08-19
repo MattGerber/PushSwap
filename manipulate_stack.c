@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/19 10:04:50 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/19 12:33:03 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	clean_stack(t_stack *start)
 	{
 		node = node->previous;
 	}
-	if (node->head == 1)
+	if (node->head = 1)
 		node = node->next;
 	return(node);
 }

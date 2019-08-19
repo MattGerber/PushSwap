@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 12:55:23 by magerber          #+#    #+#             */
-/*   Updated: 2019/07/16 15:13:13 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/19 12:39:04 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # define INTMAX 2147483647
 # define INTMIN -2147483648
+# define BUFF_SIZE 1
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -90,5 +91,6 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_convert(char *s, int n, int i);
 int					ft_isupper(int n);
 char				*ft_strndup(const char *s, size_t n);
+int					get_next_line(const int fd, char **line);
 
 #endif
