@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/23 12:39:33 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/23 13:41:15 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,29 @@ int		num_input_check(char **nums)
 		{
 			if (!ft_isdigit(nums[i][j]))
 				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int		input_dupe_check(char **nums)
+{
+	int i;
+	int j;
+
+	i = 1;
+	j = 1;
+	while(nums[i])
+	{
+		j = 0;
+		while (nums[j])
+		{
+			if (ft_strequ(nums[i], nums[j]) && i != j)
+			{
+				return (0);
+			}
 			j++;
 		}
 		i++;

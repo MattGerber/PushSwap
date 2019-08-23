@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 10:41:09 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/23 12:39:46 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/23 15:28:21 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,12 @@ void	do_op(char *command, t_stack *stacka, t_stack *stackb)
 		rrr(find_list_head(stacka), find_list_head(stackb));
 }
 
-t_stack	*initialise_stack(int count, char **args)
+t_stack	*initialise_stack(int count, char **args, int 	i)
 {
 	t_stack	*stack;
-	int 	i;
-
+	
 	stack = NULL;
 	// printf("dfsa");
-	i = 1;
 	while (i < count)
 	{
 		if (stack == NULL)
@@ -68,15 +66,36 @@ int		main(int argc, char **argv)
 	t_stack	*stacka;
 	t_stack	*stackb;
 	char	*command;
+	char	**numbers;
+	int		i;
 
-	if (!num_input_check(argv))
+	i = 0;
+	if (argc == 2)
 	{
-		ft_putstr("Error\n");
-		return(0);			
+		numbers = ft_strsplit(argv[1], ' ');
+		if (!num_input_check(numbers) ||  !input_dupe_check(numbers))
+		{
+			ft_putstr("Error\n");
+			return(0);			
+		}
+		while(numbers[i] != NULL)
+			i++;
+		stacka = initialise_stack(i, numbers, 0);
+		stackb = make_new_node(NULL, 0);
+			
 	}
-	stacka = initialise_stack(argc, argv);
-	stackb = make_new_node(NULL, 0);
-	 while (get_next_line(0, &command))
+	else
+	{
+		numbers = argv;
+		if (!num_input_check(numbers) ||  !input_dupe_check(numbers))
+		{
+			ft_putstr("Error\n");
+			return(0);			
+		}
+		stacka = initialise_stack(argc, numbers, 1);
+		stackb = make_new_node(NULL, 0);
+	}
+	while (get_next_line(0, &command))
 	{
 		do_op(command, stacka, stackb);
 		print_stack(stacka);
@@ -85,38 +104,9 @@ int		main(int argc, char **argv)
 	}
 	print_stack(stacka);
 	if (is_sorted(stacka))
-		printf("yas");
+		printf("OK");
 	else
-		printf("nah");
-	//print_stacks(stacka, stackb);
-	// printf("1\n");
-	// print_stacks(stacka, stackb);
-	// printf("2\n");
-	// pb(find_list_head(stacka), find_list_head(stackb));
-	// printf("3\n");
-	// 	print_stacks(stacka, stackb);
-	// printf("4\n");
-	// print_stacks(stacka, stackb);
-	// printf("5\n");
-	// pb(find_list_head(stacka),find_list_head(stackb));
-	// 	print_stacks(stacka, stackb);
-	// printf("6\n");
-	// print_stacks(stacka, stackb);
-	// pb(find_list_head(stacka),find_list_head(stackb));
-	// printf("7\n");
-	// 	print_stacks(stacka, stackb);
-	// printf("8\n");
-	// print_stacks(stacka, stackb);
-	// pb(find_list_head(stacka),find_list_head(stackb));
-	// printf("9\n");
-	// 	print_stacks(stacka, stackb);
-	// printf("10\n");
-	// print_stacks(stacka, stackb);
-	// pa(find_list_head(stackb),find_list_head(stacka));
-	// printf("11\npb");
-	// print_stacks(stacka, stackb);
-	// printf("12\n");
-	// print_stacks(stacka, stackb);
-	// printf("13\n");
-	// clean_stack(find_list_head(stacka));
+		printf("KO");
+
+	clean_stack(find_list_head(stacka));
 }
