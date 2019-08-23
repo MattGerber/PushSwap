@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_operations_swap.c                             :+:      :+:    :+:   */
+/*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/06 11:52:00 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/23 11:34:40 by magerber         ###   ########.fr       */
+/*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
+/*   Updated: 2019/08/23 12:39:33 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *listhead)
+int		is_sorted(t_stack *stacka)
 {
-	t_stack	*nextelem;
-	int		temp;
-
-	nextelem = listhead->next;
-	temp = listhead->value;
-	listhead->value = nextelem->value;
-	nextelem->value = temp;
+	stacka = find_list_head(stacka);
+	while (stacka->next != NULL)
+	{
+		if (stacka->value > stacka->next->value)
+			return (0);
+		stacka = stacka->next;
+	}
+	return (1);
 }
 
-void	sb(t_stack *listhead)
+int		num_input_check(char **nums)
 {
-	t_stack	*nextelem;
-	int		temp;
+	int i;
+	int j;
 
-	nextelem = listhead->next;
-	temp = listhead->value;
-	listhead->value = nextelem->value;
-	nextelem->value = temp;
-}
-
-void	ss(t_stack *listheada, t_stack *listheadb)
-{
-	sa(listheada);
-	sb(listheadb);
+	i = 1;
+	j = 0;
+	while (nums[i])
+	{
+		j = 0;
+		while (nums[i][j])
+		{
+			if (!ft_isdigit(nums[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }

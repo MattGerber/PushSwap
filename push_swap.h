@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:50:20 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/19 10:01:44 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/23 12:39:39 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void				rr(t_stack *stacka, t_stack *stackb);
 void				rra(t_stack *stacka);
 void				rrb(t_stack *stackb);
 void				rrr(t_stack *stacka, t_stack *stackb);
+int					is_sorted(t_stack *stacka);
+int					num_input_check(char **nums);
+void				do_op(char *command, t_stack *stacka, t_stack *stackb);
 
 #endif
