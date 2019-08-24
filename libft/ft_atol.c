@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 15:00:47 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/24 20:51:02 by magerber         ###   ########.fr       */
+/*   Created: 2019/08/24 20:49:12 by magerber          #+#    #+#             */
+/*   Updated: 2019/08/24 20:50:36 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
 	long	negative;
 	long	res;
@@ -32,5 +32,5 @@ int	ft_atoi(const char *str)
 		++str;
 	}
 	res *= negative;
-	return (int)(res);
+	return (long)(res);
 }

@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 12:55:23 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/19 12:39:04 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/24 20:51:24 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ char				*ft_convert(char *s, int n, int i);
 int					ft_isupper(int n);
 char				*ft_strndup(const char *s, size_t n);
 int					get_next_line(const int fd, char **line);
+long				ft_atol(const char *str);
 
 #endif

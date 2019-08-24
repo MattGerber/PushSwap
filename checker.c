@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 10:41:09 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/23 15:28:21 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/24 21:00:18 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int		main(int argc, char **argv)
 			i++;
 		stacka = initialise_stack(i, numbers, 0);
 		stackb = make_new_node(NULL, 0);
+		free (numbers);
 			
 	}
 	else
@@ -109,4 +110,5 @@ int		main(int argc, char **argv)
 		printf("KO");
 
 	clean_stack(find_list_head(stacka));
+	//clean_stack(find_list_head(stackb));
 }

@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/23 13:41:15 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/24 20:51:04 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int		num_input_check(char **nums)
 		j = 0;
 		while (nums[i][j])
 		{
-			if (!ft_isdigit(nums[i][j]))
+			if (!ft_isdigit(nums[i][j]) || ft_atol(&nums[i][j]) > 2147483647 
+			|| ft_atol(&nums[i][j]) <= -2147483648)
 				return (0);
 			j++;
 		}
