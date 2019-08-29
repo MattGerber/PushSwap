@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/24 20:51:04 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/27 15:30:46 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int		is_sorted(t_stack *stacka)
 {
-	stacka = find_list_head(stacka);
+	stacka =  (stacka);
+//	if (stacka->head == 1)
+//		stacka = stacka->next;
 	while (stacka->next != NULL)
 	{
 		if (stacka->value > stacka->next->value)

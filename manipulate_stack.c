@@ -6,30 +6,58 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/23 11:59:15 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/29 09:43:07 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*make_new_node(t_stack *previous, int value)
+t_stack	*initialise_stack(int count, char **args, int 	i)
 {
-	t_stack	*new_stack;
-
-	new_stack = malloc(sizeof(t_stack));
-	new_stack->next = NULL;
-	new_stack->previous = NULL;
-	new_stack->value = value;
-	new_stack->weight = 0;
-	new_stack->head = 0;
-	if (previous != NULL)
+	t_stack	*stack;
+	
+	stack = NULL;
+	// printf("dfsa");
+	while (i < count)
 	{
-		previous->next = new_stack;
-		new_stack->previous = previous;
+		// if (stack == NULL)
+		// {
+		// 	stack = make_new_node(NULL, 0); 
+		// 	//stackb->value = 0;
+		// }
+		// else
+		// {
+			stack = make_new_node(stack, ft_atoi(args[i]));
+			i++;
+		// }
+	}
+	return (stack);
+}
+
+t_stack	*make_new_node(t_stack *head, int value)
+{
+	t_stack	*temp;
+	t_stack	*newnode;
+
+	if (head == NULL)
+	{
+		head = malloc(sizeof(t_stack));
+		head->previous = NULL;
+		head->next = NULL;
+		head->value = value;
 	}
 	else
-		new_stack->head = 1;
-	return (new_stack);
+	{
+		newnode = malloc(sizeof(t_stack));	
+		temp = head;
+		while (temp->next)
+			temp= temp->next;
+		temp->next = newnode;
+		newnode->previous = temp;
+		newnode->next = NULL;
+		newnode->value = value;
+	}
+	return(head);
 }
 
 int		stack_length(t_stack *stack)
@@ -50,7 +78,7 @@ void	clean_stack(t_stack *start)
 	t_stack	*freeme;
 	t_stack *holdme;
 
-	freeme = start;
+	freeme = (start);
 	holdme = NULL;
 	while (freeme->next != NULL)
 	{
@@ -60,28 +88,27 @@ void	clean_stack(t_stack *start)
 	}
 }
 
-t_stack	*find_list_head(t_stack *node)
-{
-	while (node->previous != NULL)
-	{
-		node = node->previous;
-	}
-	if (node->head == 1)
-		node = node->next;
-	return (node);
-}
-
 void	print_stack(t_stack *start)
 {
 	t_stack	*currentnode;
 	int		count;
-
-	count = 0;
-	currentnode = find_list_head(start);
-	while (currentnode)
+	
+	if (!start)
+		printf("fuck");
+	if (start != NULL)
 	{
-		count++;
-		printf("item %d = %d\n", count, currentnode->value);
-		currentnode = currentnode->next;
+		count = 0;
+		currentnode = start;
+		// if (currentnode->head == 1)
+		// currentnode = currentnode->next;
+		while (currentnode)
+		{
+			//if (currentnode->head != 1)
+			//{
+				count++;
+				printf("item %d = %d\n", count, currentnode->value);
+	//	}
+			currentnode = currentnode->next;
+		}
 	}
 }
