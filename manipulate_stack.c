@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/29 09:43:07 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/29 14:44:34 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,31 +60,47 @@ t_stack	*make_new_node(t_stack *head, int value)
 	return(head);
 }
 
-int		stack_length(t_stack *stack)
+int		stack_length(t_stack **stack)
 {
 	int i;
+	t_stack *temp;
 
-	i = 0;
-	while (stack->next != NULL)
+	i = 1;
+	temp = (*stack);
+	while (temp->next != NULL)
 	{
 		i++;
-		stack = stack->next;
+		temp = temp->next;
 	}
 	return (i);
 }
 
-void	clean_stack(t_stack *start)
+void	clean_stack(t_stack *stacka, t_stack *stackb)
 {
 	t_stack	*freeme;
 	t_stack *holdme;
-
-	freeme = (start);
-	holdme = NULL;
-	while (freeme->next != NULL)
+		
+	if (stacka != NULL)
 	{
-		holdme = freeme->next;
-		free(freeme);
-		freeme = holdme;
+		freeme = (stacka);
+		holdme = NULL;
+		while (freeme->next != NULL)
+		{
+			holdme = freeme->next;
+			free(freeme);
+			freeme = holdme;
+		}
+	}
+	if (stackb != NULL)
+	{
+		freeme = (stackb);
+		holdme = NULL;
+		while (freeme->next != NULL)
+		{
+			holdme = freeme->next;
+			free(freeme);
+			freeme = holdme;
+		}
 	}
 }
 
@@ -93,8 +109,6 @@ void	print_stack(t_stack *start)
 	t_stack	*currentnode;
 	int		count;
 	
-	if (!start)
-		printf("fuck");
 	if (start != NULL)
 	{
 		count = 0;

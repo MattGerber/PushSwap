@@ -6,53 +6,57 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:43 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/27 10:49:42 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/29 14:58:01 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *stacka)
+void	ra(t_stack **stacka)
 {
 	t_stack	*head;
 	t_stack *last;
 
-	if (stacka->next != NULL)
+	if ((*stacka) != NULL)
 	{
-		// if (stacka->head == 1)
-		// 	stacka = stacka->next;
-		head = stacka;
-		last = stacka;
-		while (last->next != NULL)
-			last = last->next;
-		stacka = head->next;
-		stacka->previous = NULL;
-		last->next = head;
-		head->next = NULL;
-		head->previous = last;
+		if ((*stacka)->next != NULL)
+		{
+			head = (*stacka);
+			last = (*stacka);
+			while (last->next != NULL)
+				last = last->next;
+			(*stacka) = head->next;
+			(*stacka)->previous = NULL;
+			last->next = head;
+			head->next = NULL;
+			head->previous = last;
+		}
 	}
 }
 
-void	rb(t_stack *stackb)
+void	rb(t_stack **stackb)
 {
 	t_stack	*head;
 	t_stack *last;
-
-	if (stackb->next != NULL)
+	
+	if ((*stackb) != NULL)
 	{
-		head = stackb->next;
-		last = stackb->next;
-		while (last->next != NULL)
-			last = last->next;
-		stackb = head->next;
-		stackb->previous = NULL;
-		last->next = head;
-		head->next = NULL;
-		head->previous = last;
+		if ((*stackb)->next != NULL)
+		{
+			head = (*stackb);
+			last = (*stackb);
+			while (last->next != NULL)
+				last = last->next;
+			(*stackb) = head->next;
+			(*stackb)->previous = NULL;
+			last->next = head;
+			head->next = NULL;
+			head->previous = last;
+		}
 	}
 }
 
-void	rr(t_stack *stacka, t_stack *stackb)
+void	rr(t_stack **stacka, t_stack **stackb)
 {
 	ra(stacka);
  	rb(stackb);

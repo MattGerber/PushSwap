@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 10:41:09 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/29 10:38:49 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/29 15:01:20 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,28 @@
 
 void	do_op(char *command, t_stack **stacka, t_stack **stackb)
 {
-	if (ft_strequ(command, "pb")){
-		
+	if (ft_strequ(command, "pb"))
 		pb(stacka, stackb);
-	}
-// 	else if (ft_strequ(command, "pa"))
-// 		pa( (stackb),  (stacka));
-// 	else if (ft_strequ(command, "sa"))
-// 		sa( (stacka));
-// 	else if (ft_strequ(command, "ss"))
-// 		ss( (stacka),  (stackb));
-// 	else if (ft_strequ(command, "sb"))
-// 		sb( (stackb));
-// 	else if (ft_strequ(command, "ra"))
-// 		ra( (stacka));
-// 	else if (ft_strequ(command, "rb"))
-// 		rb( (stackb));
-// 	else if (ft_strequ(command, "rr"))
-// 		rr( (stacka),  (stackb));
-// 	else if (ft_strequ(command, "rra"))
-// 		rra( (stacka));
-// 	else if (ft_strequ(command, "rrb"))
-// 		rrb( (stackb));
-// 	else if (ft_strequ(command, "rrr"))
-// 		rrr( (stacka),  (stackb));
+ 	else if (ft_strequ(command, "pa"))
+ 		pa(stackb, stacka);
+ 	else if (ft_strequ(command, "sa"))
+ 		sa(stacka);
+ 	else if (ft_strequ(command, "ss"))
+ 		ss(stacka, stackb);
+ 	else if (ft_strequ(command, "sb"))
+ 		sb(stackb);
+ 	else if (ft_strequ(command, "ra"))
+ 		ra(stacka);
+	else if (ft_strequ(command, "rb"))
+		rb(stackb);
+ 	else if (ft_strequ(command, "rr"))
+		rr(stacka, stackb);
+	else if (ft_strequ(command, "rra"))
+		rra( (stacka));
+	else if (ft_strequ(command, "rrb"))
+		rrb( (stackb));
+	else if (ft_strequ(command, "rrr"))
+		rrr( (stacka),  (stackb));
 }
 
 int		main(int argc, char **argv)
@@ -87,11 +85,11 @@ int		main(int argc, char **argv)
 	printf("\n\n");
 	print_stack(stacka);
 	//print_stack(stacka);
-	if (is_sorted(stacka))
+	if (is_sorted(stacka, stackb))
 		printf("OK");
 	else
 		printf("KO");
 
-	clean_stack(stacka);
+	clean_stack(stacka, stackb);
 	//clean_stack( (stackb));
 }

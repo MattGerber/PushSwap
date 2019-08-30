@@ -6,68 +6,64 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:02 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/29 10:38:42 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/29 14:18:55 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	pb(t_stack *lista, t_stack *listb)
-// {
-// 	if (lista)
-// 	{
-// 		//if (lista->head == 1)
-// 		//	lista = lista->next;
-// 		lista->next->previous = NULL;
-// 		listb->previous = lista;
-// 		lista->next = listb;
-// 		lista->previous = NULL;
-// 	}
-// }
-
-void pb(t_stack **lista, t_stack **listb)
+void	pb(t_stack **lista, t_stack **listb)
 {
-	// printf("%s\n","Nanananana");
-	// printf("%p\n", (*listb));
+	if ((*lista) == NULL)
+		return ;
 	if	((*listb) == NULL)
 	{
-		printf("%s\n\n", "nanannananananan");
 		(*listb) = (*lista);
-		printf(" *lst->b : [%d]\n", (*listb)->value);
 		(*lista) =	(*lista)->next;
 		(*lista)->previous = NULL;
 		(*listb)->next->previous = NULL;
 		(*listb)->next = NULL;
 	}
+	else if ((*lista)->next == NULL)
+	{
+		(*lista)->next = (*listb);
+		(*listb) = (*lista);
+		(*lista) = NULL;
+	}
 	else
 	{
-		(*listb)->previous = (*lista);
+ 		(*listb)->previous = (*lista);
 		(*lista) = (*lista)->next;
 		(*lista)->previous->next = (*listb);
 		(*listb) = (*listb)->previous;
 		(*listb)->previous = NULL;
 	}
-;
-	
 }
 
-void	pa(t_stack *listb, t_stack *lista)
+void	pa(t_stack **listb, t_stack **lista)
 {
-	if (listb)
+	if ((*listb) == NULL)
+		return ;
+	if	((*lista) == NULL)
 	{
-		//if (lista->head == 1)
-	//		listb = listb->next;
-		listb->next->previous = NULL;
-		lista->previous = listb;
-		listb->next = lista;
-		listb->previous = NULL;
+		(*lista) = (*listb);
+		(*listb) =	(*listb)->next;
+		(*listb)->previous = NULL;
+		(*lista)->next->previous = NULL;
+		(*lista)->next = NULL;
+	}
+	else if ((*listb)->next == NULL)
+	{
+		(*listb)->next = (*lista);
+		(*lista) = (*listb);
+		(*listb) = NULL;
+	}
+	else
+	{
+ 		(*lista)->previous = (*listb);
+		(*listb) = (*listb)->next;
+		(*listb)->previous->next = (*lista);
+		(*lista) = (*lista)->previous;
+		(*lista)->previous = NULL;
 	}
 }
-
-// void	pa(t_stack *listb, t_stack *lista)
-// {
-// 	if (!lista)
-// 	{
-// 		listb->next->pre	
-// 	}
-// }

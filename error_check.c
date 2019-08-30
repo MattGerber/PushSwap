@@ -6,17 +6,17 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/27 15:30:46 by magerber         ###   ########.fr       */
+/*   Updated: 2019/08/29 14:23:32 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		is_sorted(t_stack *stacka)
+int		is_sorted(t_stack *stacka, t_stack *stackb)
 {
-	stacka =  (stacka);
-//	if (stacka->head == 1)
-//		stacka = stacka->next;
+	// stacka =  (stacka);
+	if (stackb != NULL || stacka == NULL)
+		return (0);
 	while (stacka->next != NULL)
 	{
 		if (stacka->value > stacka->next->value)
