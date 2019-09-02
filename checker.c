@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 10:41:09 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/29 15:01:20 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/02 15:53:34 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,13 @@ int		main(int argc, char **argv)
 		print_stack(stacka);
 	 	free(command);
 	}
-	printf("\n\n");
+	ft_putstr("\n\n");
 	print_stack(stacka);
 	//print_stack(stacka);
 	if (is_sorted(stacka, stackb))
-		printf("OK");
+		ft_putendl("OK");
 	else
-		printf("KO");
+		ft_putendl("KO");
 
 	clean_stack(stacka, stackb);
 	//clean_stack( (stackb));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_operations_reverse_rotate.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:06 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/29 15:15:58 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/02 15:52:59 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,43 @@
 
 void	rra(t_stack **stacka)
 {
-	t_stack	*head;
-	t_stack *last;
+	t_stack	*last;
+	t_stack	*second_last;
 
-			head = (*stacka);
-			last = (*stacka);
-			while (last->next != NULL)
-				last = last->next;
-			last->previous->next = NULL;
-			last->previous = NULL;
-			last->next = head;
-			head->previous = last;
-			head = head->previous;
-
+	if ((!*stacka) || (stack_length(stacka) < 2))
+		return ;
+	last = *stacka;
+	second_last = NULL;
+	while (last->next != NULL)
+	{
+		second_last = last;
+		last = last->next;
+	}
+	second_last->next = NULL;
+	last->previous = NULL;
+	last->next = *stacka;
+	*stacka = last;
 }
-
 void	rrb(t_stack **stackb)
 {
-	t_stack	*head;
-	t_stack *last;
+	t_stack	*last;
+	t_stack	*second_last;
 
-	head = (*stackb);
-	last = (*stackb);
+	if ((!*stackb) || (stack_length(stackb) < 2))
+		return ;
+	last = *stackb;
+	second_last = NULL;
 	while (last->next != NULL)
+	{
+		second_last = last;
 		last = last->next;
-	head->previous = last;
-	last->next = head;
-	last->previous->next = NULL;
+	}
+	second_last->next = NULL;
 	last->previous = NULL;
+	last->next = *stackb;
+	*stackb = last;
 }
+
 
 void	rrr(t_stack **stacka, t_stack **stackb)
 {
