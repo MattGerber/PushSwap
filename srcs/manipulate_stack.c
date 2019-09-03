@@ -6,30 +6,22 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/02 15:46:22 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/03 15:30:30 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 t_stack	*initialise_stack(int count, char **args, int 	i)
 {
 	t_stack	*stack;
 	
 	stack = NULL;
-	// printf("dfsa");
+
 	while (i < count)
 	{
-		// if (stack == NULL)
-		// {
-		// 	stack = make_new_node(NULL, 0); 
-		// 	//stackb->value = 0;
-		// }
-		// else
-		// {
-			stack = make_new_node(stack, ft_atoi(args[i]));
-			i++;
-		// }
+		stack = make_new_node(stack, ft_atoi(args[i]));
+		i++;
 	}
 	return (stack);
 }
@@ -113,15 +105,10 @@ void	print_stack(t_stack *start)
 	{
 		count = 0;
 		currentnode = start;
-		// if (currentnode->head == 1)
-		// currentnode = currentnode->next;
 		while (currentnode)
 		{
-			//if (currentnode->head != 1)
-			//{
-				count++;
-				printf("item %d = %d\n", count, currentnode->value);
-	//	}
+			count++;
+			printf("item %d = %d\n", count, currentnode->value);
 			currentnode = currentnode->next;
 		}
 	}

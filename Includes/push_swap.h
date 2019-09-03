@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:50:20 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/29 15:01:13 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/03 14:03:56 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct		s_stack
 { 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   list_operations_rotate.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:43 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/29 14:58:01 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/03 14:03:33 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ra(t_stack **stacka)
 {

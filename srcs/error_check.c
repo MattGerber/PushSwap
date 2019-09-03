@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/29 14:23:32 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/03 15:31:07 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int		is_sorted(t_stack *stacka, t_stack *stackb)
 {
-	// stacka =  (stacka);
 	if (stackb != NULL || stacka == NULL)
 		return (0);
 	while (stacka->next != NULL)
@@ -69,4 +68,30 @@ int		input_dupe_check(char **nums)
 		i++;
 	}
 	return (1);
+}
+
+void	do_op(char *command, t_stack **stacka, t_stack **stackb)
+{
+	if (ft_strequ(command, "pb"))
+		pb(stacka, stackb);
+ 	else if (ft_strequ(command, "pa"))
+ 		pa(stackb, stacka);
+ 	else if (ft_strequ(command, "sa"))
+ 		sa(stacka);
+ 	else if (ft_strequ(command, "ss"))
+ 		ss(stacka, stackb);
+ 	else if (ft_strequ(command, "sb"))
+ 		sb(stackb);
+ 	else if (ft_strequ(command, "ra"))
+ 		ra(stacka);
+	else if (ft_strequ(command, "rb"))
+		rb(stackb);
+ 	else if (ft_strequ(command, "rr"))
+		rr(stacka, stackb);
+	else if (ft_strequ(command, "rra"))
+		rra( (stacka));
+	else if (ft_strequ(command, "rrb"))
+		rrb( (stackb));
+	else if (ft_strequ(command, "rrr"))
+		rrr( (stacka),  (stackb));
 }

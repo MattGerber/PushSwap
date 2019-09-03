@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   list_operations_swap.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:00 by magerber          #+#    #+#             */
-/*   Updated: 2019/08/29 14:46:18 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/03 14:03:37 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	sa(t_stack **listhead)
 {

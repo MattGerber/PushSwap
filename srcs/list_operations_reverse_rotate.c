@@ -6,11 +6,11 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:06 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/02 15:52:59 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/03 14:03:29 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	rra(t_stack **stacka)
 {
