@@ -6,7 +6,7 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 10:41:09 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 12:09:03 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/04 13:04:57 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@
 void	do_op(char *command, t_stack **stacka, t_stack **stackb)
 {
 	if (ft_strequ(command, "pb"))
-		pb(stacka, stackb);
+		pb(stacka, stackb, 0);
  	else if (ft_strequ(command, "pa"))
- 		pa(stackb, stacka);
+ 		pa(stackb, stacka, 0);
  	else if (ft_strequ(command, "sa"))
- 		sa(stacka);
+ 		sa(stacka, 0);
  	else if (ft_strequ(command, "ss"))
- 		ss(stacka, stackb);
+ 		ss(stacka, stackb, 0);
  	else if (ft_strequ(command, "sb"))
- 		sb(stackb);
+ 		sb(stackb, 0);
  	else if (ft_strequ(command, "ra"))
- 		ra(stacka);
+ 		ra(stacka, 0);
 	else if (ft_strequ(command, "rb"))
-		rb(stackb);
+		rb(stackb, 0);
  	else if (ft_strequ(command, "rr"))
-		rr(stacka, stackb);
+		rr(stacka, stackb, 0);
 	else if (ft_strequ(command, "rra"))
-		rra( (stacka));
+		rra(stacka, 0);
 	else if (ft_strequ(command, "rrb"))
-		rrb( (stackb));
+		rrb(stackb, 0);
 	else if (ft_strequ(command, "rrr"))
-		rrr( (stacka),  (stackb));
+		rrr(stacka, stackb, 0);
 }
 
 int		main(int argc, char **argv)

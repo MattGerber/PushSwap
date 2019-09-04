@@ -6,7 +6,7 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:26:40 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 12:45:40 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/04 13:12:21 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ int			main(int argc, char **argv)
 		stacka = initialise_stack(argc, numbers, 1);
 	}
 	add_num_weight(&stacka);
-	print_stack(stacka);
+	sort_ineffeciently(stacka, stackb);
 }

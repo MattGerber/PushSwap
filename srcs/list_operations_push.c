@@ -6,13 +6,13 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:02 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/03 14:03:25 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/04 13:07:10 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pb(t_stack **lista, t_stack **listb)
+void	pb(t_stack **lista, t_stack **listb, int i)
 {
 	if ((*lista) == NULL)
 		return ;
@@ -38,9 +38,11 @@ void	pb(t_stack **lista, t_stack **listb)
 		(*listb) = (*listb)->previous;
 		(*listb)->previous = NULL;
 	}
+	if (i == 1)
+		ft_putendl("pb");
 }
 
-void	pa(t_stack **listb, t_stack **lista)
+void	pa(t_stack **listb, t_stack **lista, int i)
 {
 	if ((*listb) == NULL)
 		return ;
@@ -66,4 +68,6 @@ void	pa(t_stack **listb, t_stack **lista)
 		(*lista) = (*lista)->previous;
 		(*lista)->previous = NULL;
 	}
+	if (i == 1)
+		ft_putendl("pa");
 }

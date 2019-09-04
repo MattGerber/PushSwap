@@ -6,13 +6,13 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:43 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/03 14:03:33 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/04 13:07:17 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ra(t_stack **stacka)
+void	ra(t_stack **stacka, int i)
 {
 	t_stack	*head;
 	t_stack *last;
@@ -32,9 +32,11 @@ void	ra(t_stack **stacka)
 			head->previous = last;
 		}
 	}
+	if (i == 1)
+		ft_putendl("ra");
 }
 
-void	rb(t_stack **stackb)
+void	rb(t_stack **stackb, int i)
 {
 	t_stack	*head;
 	t_stack *last;
@@ -54,10 +56,14 @@ void	rb(t_stack **stackb)
 			head->previous = last;
 		}
 	}
+	if (i == 1)
+		ft_putendl("rb");
 }
 
-void	rr(t_stack **stacka, t_stack **stackb)
+void	rr(t_stack **stacka, t_stack **stackb, int i)
 {
-	ra(stacka);
- 	rb(stackb);
+	ra(stacka, 0);
+ 	rb(stackb, 0);
+	if (i == 1)
+		ft_putendl("rr");
 }

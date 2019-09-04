@@ -6,7 +6,7 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 12:17:53 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/04 12:55:46 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	print_stack(t_stack *start)
 		while (currentnode)
 		{
 			count++;
-			printf("item %d = %d\n", currentnode->weight, currentnode->value);
+			printf("item %d = %d\n", count, currentnode->value);
 			currentnode = currentnode->next;
 		}
 	}

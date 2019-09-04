@@ -6,13 +6,13 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:00 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/03 14:03:37 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/04 13:07:19 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(t_stack **listhead)
+void	sa(t_stack **listhead, int i)
 {
 	t_stack	*nextelem;
 	int		temp;
@@ -23,9 +23,11 @@ void	sa(t_stack **listhead)
 	temp = (*listhead)->value;
 	(*listhead)->value = nextelem->value;
 	nextelem->value = temp;
+	if (i == 1)
+		ft_putendl("sa");
 }
 
-void	sb(t_stack **listhead)
+void	sb(t_stack **listhead, int i)
 {
 	t_stack	*nextelem;
 	int		temp;
@@ -36,10 +38,14 @@ void	sb(t_stack **listhead)
 	temp = (*listhead)->value;
 	(*listhead)->value = nextelem->value;
 	nextelem->value = temp;
+	if (i == 1)
+		ft_putendl("pb");
 }
 
-void	ss(t_stack **listheada, t_stack **listheadb)
+void	ss(t_stack **listheada, t_stack **listheadb, int i)
 {
-	sa(listheada);
-	sb(listheadb);
+	sa(listheada, 0);
+	sb(listheadb, 0);
+	if (i == 1)
+		ft_putendl("pb");
 }

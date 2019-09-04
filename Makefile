@@ -6,7 +6,7 @@
 #    By: magerber <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 10:32:42 by magerber          #+#    #+#              #
-#    Updated: 2019/09/04 12:09:28 by magerber         ###   ########.fr        #
+#    Updated: 2019/09/04 13:14:01 by magerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,9 @@ OBJ_CH += $(OBJ_DIR)list_operations_reverse_rotate.o $(OBJ_DIR)list_operations_r
 OBJ_CH += $(OBJ_DIR)list_operations_swap.o $(OBJ_DIR)manipulate_stack.o
 
 OBJ_PS = $(OBJ_DIR)push_swap.o $(OBJ_DIR)error_check.o $(OBJ_DIR)manipulate_stack.o
+OBJ_PS += $(OBJ_DIR)list_operations_reverse_rotate.o $(OBJ_DIR)list_operations_rotate.o
+OBJ_PS += $(OBJ_DIR)list_operations_swap.o $(OBJ_DIR)list_operations_push.o
+OBJ_PS += $(OBJ_DIR)sort_algos.o
 
 all: $(LIB) $(NAME_CH) $(NAME_PS)
 
