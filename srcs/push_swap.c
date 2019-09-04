@@ -6,11 +6,36 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:26:40 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/03 15:39:35 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/04 12:45:40 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void		add_num_weight(t_stack **stacka)
+{
+	t_stack *temp;
+	t_stack *compare;
+
+	compare = (*stacka);
+	while (compare)
+	{
+		compare->weight = 1;
+		compare = compare->next;
+	}
+	compare = (*stacka);
+	while(compare)
+	{
+		temp = (*stacka);
+		while(temp)
+		{
+			if (compare->value > temp->value)
+				compare->weight++;
+			temp = temp->next;			
+		}
+		compare = compare->next;
+	}
+}
 
 int			main(int argc, char **argv)
 {
@@ -43,4 +68,6 @@ int			main(int argc, char **argv)
 		}
 		stacka = initialise_stack(argc, numbers, 1);
 	}
+	add_num_weight(&stacka);
+	print_stack(stacka);
 }

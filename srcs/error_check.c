@@ -6,7 +6,7 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/03 15:31:07 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/04 12:08:42 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,28 +70,3 @@ int		input_dupe_check(char **nums)
 	return (1);
 }
 
-void	do_op(char *command, t_stack **stacka, t_stack **stackb)
-{
-	if (ft_strequ(command, "pb"))
-		pb(stacka, stackb);
- 	else if (ft_strequ(command, "pa"))
- 		pa(stackb, stacka);
- 	else if (ft_strequ(command, "sa"))
- 		sa(stacka);
- 	else if (ft_strequ(command, "ss"))
- 		ss(stacka, stackb);
- 	else if (ft_strequ(command, "sb"))
- 		sb(stackb);
- 	else if (ft_strequ(command, "ra"))
- 		ra(stacka);
-	else if (ft_strequ(command, "rb"))
-		rb(stackb);
- 	else if (ft_strequ(command, "rr"))
-		rr(stacka, stackb);
-	else if (ft_strequ(command, "rra"))
-		rra( (stacka));
-	else if (ft_strequ(command, "rrb"))
-		rrb( (stackb));
-	else if (ft_strequ(command, "rrr"))
-		rrr( (stacka),  (stackb));
-}

@@ -6,7 +6,7 @@
 #    By: magerber <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 10:32:42 by magerber          #+#    #+#              #
-#    Updated: 2019/09/03 11:23:36 by magerber         ###   ########.fr        #
+#    Updated: 2019/09/04 12:09:28 by magerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,9 @@ OBJ_CH = $(OBJ_DIR)checker.o $(OBJ_DIR)error_check.o $(OBJ_DIR)list_operations_p
 OBJ_CH += $(OBJ_DIR)list_operations_reverse_rotate.o $(OBJ_DIR)list_operations_rotate.o
 OBJ_CH += $(OBJ_DIR)list_operations_swap.o $(OBJ_DIR)manipulate_stack.o
 
-all: $(LIB) $(NAME_CH) 
+OBJ_PS = $(OBJ_DIR)push_swap.o $(OBJ_DIR)error_check.o $(OBJ_DIR)manipulate_stack.o
+
+all: $(LIB) $(NAME_CH) $(NAME_PS)
 
 $(LIB): relib cleanlib
 	@echo "[$(LIB)] compiled"
@@ -83,6 +85,10 @@ $(LIB): relib cleanlib
 $(NAME_CH): $(OBJ_CH)
 	@$(CC) -o $(NAME_CH) $(FLAGS) $(OPTIONS) $(OBJ_CH) 
 	@echo "[$(NAME_CH)] compiled"
+
+$(NAME_PS): $(OBJ_PS)
+	@$(CC) -o $(NAME_PS) $(FLAGS) $(OPTIONS) $(OBJ_PS) 
+	@echo "[$(NAME_PS)] compiled"
 
 clean: cleanlib
 	@/bin/rm -f $(SRC_DIR)*.o

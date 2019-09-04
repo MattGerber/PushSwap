@@ -6,7 +6,7 @@
 /*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/03 15:30:30 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/04 12:17:53 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_stack	*make_new_node(t_stack *head, int value)
 		head->previous = NULL;
 		head->next = NULL;
 		head->value = value;
+		// head->weight = 0;
 	}
 	else
 	{
@@ -48,6 +49,7 @@ t_stack	*make_new_node(t_stack *head, int value)
 		newnode->previous = temp;
 		newnode->next = NULL;
 		newnode->value = value;
+		// head->weight = 0;
 	}
 	return(head);
 }
@@ -108,7 +110,7 @@ void	print_stack(t_stack *start)
 		while (currentnode)
 		{
 			count++;
-			printf("item %d = %d\n", count, currentnode->value);
+			printf("item %d = %d\n", currentnode->weight, currentnode->value);
 			currentnode = currentnode->next;
 		}
 	}
