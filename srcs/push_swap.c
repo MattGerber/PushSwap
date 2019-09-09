@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:26:40 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 13:12:21 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/09 13:35:04 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../Includes/push_swap.h"
 
 void		add_num_weight(t_stack **stacka)
 {
@@ -69,5 +69,5 @@ int			main(int argc, char **argv)
 		stacka = initialise_stack(argc, numbers, 1);
 	}
 	add_num_weight(&stacka);
-	sort_ineffeciently(stacka, stackb);
+	sort_three(&stacka, &stackb);
 }

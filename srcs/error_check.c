@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 12:08:42 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/09 12:05:52 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../Includes/push_swap.h"
 
 int		is_sorted(t_stack *stacka, t_stack *stackb)
 {

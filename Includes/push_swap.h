@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:50:20 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 13:11:48 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/09 13:32:23 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int					num_input_check(char **nums);
 void				do_op(char *command, t_stack **stacka, t_stack **stackb);
 int					input_dupe_check(char **nums);
 int					stack_length(t_stack **stack);
-void				sort_ineffeciently(t_stack *lista,t_stack *listb);
+void				sort_ineffeciently(t_stack **lista,t_stack **listb);
+void				sort_three(t_stack **lista,t_stack **listb);
 
 #endif

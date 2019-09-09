@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   manipulate_stack.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 12:55:46 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/09 12:52:40 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../Includes/push_swap.h"
 
 t_stack	*initialise_stack(int count, char **args, int 	i)
 {
@@ -110,8 +110,13 @@ void	print_stack(t_stack *start)
 		while (currentnode)
 		{
 			count++;
-			printf("item %d = %d\n", count, currentnode->value);
+			ft_putstr("item ");
+			ft_putnbr(count);
+			ft_putstr(" = ");
+			ft_putnbr(currentnode->value);
+			ft_putendl("");
 			currentnode = currentnode->next;
+			// "item %d = %d\n", count, currentnode->value);
 		}
 	}
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   list_operations_push.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:02 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 13:07:10 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/09 12:13:08 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../Includes/push_swap.h"
 
 void	pb(t_stack **lista, t_stack **listb, int i)
 {

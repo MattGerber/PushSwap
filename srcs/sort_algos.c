@@ -3,37 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   sort_algos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:45:26 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 13:15:00 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/09 13:48:24 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../Includes/push_swap.h"
 
-void	sort_ineffeciently(t_stack *lista,t_stack *listb)
+void	sort_ineffeciently(t_stack **lista,t_stack **listb)
 {
 	int i = 1;
 	// print_stack(lista);
 	// ft_putchar('\n');
-	while (lista)
+	while ((*lista))
 	{
-		if (lista->weight == i)
+		if ((*lista)->weight == i)
 		{
 			i++;
-			pb(&lista, &listb, 1);
+			pb(lista, listb, 1);
 		}
 		else
 		{
-			ra(&lista, 1);
+			ra(lista, 1);
 		}
 	}
-	while (listb)
+	// write(1,"f", 1);
+	while ((*listb))
 	{
-		pa(&lista, &listb, 1);
+		pa(listb, lista, 1);
 	}
-	// print_stack(lista);
 	// ft_putchar('\n')	
-	
+		//print_stack((*listb));	
+}
+
+void	sort_three(t_stack **lista,t_stack **listb)
+{
+	while(!is_sorted((*lista), (*listb)))
+	{
+		if((*lista)->value > (*lista)->next->next->value)
+			ra(lista, 1);
+		else 
+			sa(lista, 1);
+	}	
 }

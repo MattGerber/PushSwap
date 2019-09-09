@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   list_operations_reverse_rotate.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:06 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 13:07:14 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/09 12:05:41 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../Includes/push_swap.h"
 
 void	rra(t_stack **stacka, int i)
 {

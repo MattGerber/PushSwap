@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 10:41:09 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/04 13:04:57 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/09 13:44:12 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../Includes/push_swap.h"
 #include <stdio.h>
 
 void	do_op(char *command, t_stack **stacka, t_stack **stackb)
 {
-	if (ft_strequ(command, "pb"))
+	if (ft_strequ(command, "pb"))      //if (command ==  "pb")
 		pb(stacka, stackb, 0);
  	else if (ft_strequ(command, "pa"))
  		pa(stackb, stacka, 0);
@@ -77,18 +77,22 @@ int		main(int argc, char **argv)
 	while (get_next_line(0, &command))
 	{
 		do_op(command, &stacka, &stackb);
-		print_stack(stackb);
-		ft_putendl(command);
-		print_stack(stacka);
+		// ft_putendl(command);
+		//print_stack(stacka);
 	 	free(command);
 	}
-	ft_putstr("\n\n");
-	print_stack(stacka);
-	//print_stack(stacka);
+		// ft_putstr("\n\n");
+		// print_stack(stackb);
 	if (is_sorted(stacka, stackb))
+	 {
+		//  print_stack(stacka);
 		ft_putendl("OK");
+	 }
 	else
+	{
+		// print_stack(stacka);
 		ft_putendl("KO");
+	}
 
 	clean_stack(stacka, stackb);
 	//clean_stack( (stackb));
