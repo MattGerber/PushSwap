@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:50:20 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/09 13:32:23 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/09 16:57:25 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ int					input_dupe_check(char **nums);
 int					stack_length(t_stack **stack);
 void				sort_ineffeciently(t_stack **lista,t_stack **listb);
 void				sort_three(t_stack **lista,t_stack **listb);
+void				sort_V2(t_stack **lista,t_stack **listb);
 
 #endif

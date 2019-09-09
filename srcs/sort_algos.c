@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:45:26 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/09 13:48:24 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/09 17:06:31 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,17 @@ void	sort_three(t_stack **lista,t_stack **listb)
 		else 
 			sa(lista, 1);
 	}	
+}
+
+void	sort_V2(t_stack **lista,t_stack **listb)
+{
+	
+	while(!is_sorted((*lista), (*listb)))
+	{
+		
+		if((*lista)->value < (*lista)->next->value)
+			sa(lista, 1);
+		else
+			ra(lista, 1);
+	}
 }
