@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/09 12:52:40 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/12 11:00:27 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,29 @@ void	clean_stack(t_stack *stacka, t_stack *stackb)
 }
 
 void	print_stack(t_stack *start)
+{
+	t_stack	*currentnode;
+	int		count;
+	
+	if (start != NULL)
+	{
+		count = 0;
+		currentnode = start;
+		while (currentnode)
+		{
+			count++;
+			ft_putstr("item ");
+			ft_putnbr(count);
+			ft_putstr(" = ");
+			ft_putnbr(currentnode->value);
+			ft_putendl("");
+			currentnode = currentnode->next;
+			// "item %d = %d\n", count, currentnode->value);
+		}
+	}
+}
+
+void	print_weight(t_stack *start)
 {
 	t_stack	*currentnode;
 	int		count;
