@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:06 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/09 12:05:41 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/16 16:35:55 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,47 @@
 
 void	rra(t_stack **stacka, int i)
 {
+{
+	t_stack	*starta;
+	t_stack	*first;
 	t_stack	*last;
-	t_stack	*second_last;
 
-	if ((!*stacka) || (stack_length(stacka) < 2))
-		return ;
-	last = *stacka;
-	second_last = NULL;
-	while (last->next != NULL)
+	starta = *stacka;
+	first = starta->next;
+	last = first->next;
+	if (first != NULL && last != NULL)
 	{
-		second_last = last;
-		last = last->next;
+		while (last->next)
+			last = last->next;
+		starta->next = last;
+		last->previous->next = NULL;
+		last->previous = starta;
+		last->next = first;
+		first->previous = last;
 	}
-	second_last->next = NULL;
-	last->previous = NULL;
-	last->next = *stacka;
-	*stacka = last;
+}
 	if (i == 1)
 		ft_putendl("rra");
 }
 void	rrb(t_stack **stackb, int i)
 {
+	t_stack	*startb;
+	t_stack	*first;
 	t_stack	*last;
-	t_stack	*second_last;
 
-	if ((!*stackb) || (stack_length(stackb) < 2))
-		return ;
-	last = *stackb;
-	second_last = NULL;
-	while (last->next != NULL)
+	startb = *stackb;
+	first = startb->next;
+	last = (*stackb)->next->next;
+	if (first != NULL && last != NULL)
 	{
-		second_last = last;
-		last = last->next;
+		while (last->next != NULL)
+			last = last->next;
+		startb->next = last;
+		last->previous->next = NULL;
+		last->previous = startb;
+		last->next = first;
+		first->previous = last;
 	}
-	second_last->next = NULL;
-	last->previous = NULL;
-	last->next = *stackb;
-	*stackb = last;
 	if (i == 1)
 		ft_putendl("rrb");
 }

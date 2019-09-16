@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/12 11:00:27 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/16 16:16:34 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,17 @@ int		stack_length(t_stack **stack)
 
 	i = 1;
 	temp = (*stack);
-	while (temp->next != NULL)
+	if ((*stack))
 	{
-		i++;
-		temp = temp->next;
+		while (temp->next != NULL)
+		{
+			i++;
+			temp = temp->next;
+		}
+		return (i);
 	}
-	return (i);
+	else 
+		return(0);
 }
 
 void	clean_stack(t_stack *stacka, t_stack *stackb)

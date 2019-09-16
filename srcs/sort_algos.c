@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:45:26 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/16 15:26:45 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/16 16:19:39 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,11 @@ void	sort_stack(t_stack **stacka, t_stack **stackb)
 		stacksize = push_smallest((*stacka));
 		if(stacksize > 0)
 		{
-			while (stacksize != 0)
+			while (stacksize > 0)
 			{
 				ra(stacka, 1);
 				stacksize--;
+				ft_putnbr(stacksize);
 			}
 		}
 		else if (stacksize < 0)
@@ -111,9 +112,10 @@ void	sort_stack(t_stack **stacka, t_stack **stackb)
 			{
 				rra(stacka, 1);
 				stacksize++;
+				ft_putnbr(stacksize);
 			}	
 		}
-		if (stacka == 0)
+		if (stacksize == 0)
 			pb(stacka, stackb, 1);
 	}
 	while ((*stackb))
@@ -153,24 +155,27 @@ int		push_smallest(t_stack *stacka)
 {
 	int		i;
 	int		reti;
+	int		stacklen;
 	t_stack	*list;
 	t_stack	*retnum;
 
 	i = 0;
+	stacklen = stack_length(&stacka);
 	list = stacka;
 	retnum = stacka;
 	reti = 0;
-	while(stack_length(&stacka) >= i )
+	while(stacklen >= i )
 	{
 		if (list->weight < retnum->weight)
 		{	
 			reti = i;
 			retnum = list;
 		}
-		list = list->next;
+		if (list->next)
+			list = list->next;
 		i++;						
 	}
-	if (i > (stack_length(&stacka) / 2))
-		i = (i - (stack_length(&stacka) / 2) * -1);
+	if (i > (stacklen / 2))
+		i = ((i - (stacklen / 2)) * -1);
 	return (i);	
 }
