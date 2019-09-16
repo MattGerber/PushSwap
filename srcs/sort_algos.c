@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:45:26 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/12 12:44:02 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/16 11:12:38 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,22 @@ void	sort_ineffeciently(t_stack **lista,t_stack **listb, int start, int end)
 		//print_stack((*lista));
 }
 
-void	sort_three(t_stack **lista,t_stack **listb)
+void	sort_three_asc(t_stack **lista,t_stack **listb)
 {
-	while(!is_sorted((*lista), (*listb)))
+	while(!is_sorted_asc((*lista), (*listb)))
 	{
 		if((*lista)->value > (*lista)->next->next->value)
+			ra(lista, 1);
+		else 
+			sa(lista, 1);
+	}	
+}
+
+void	sort_three_des(t_stack **lista,t_stack **listb)
+{
+	while(!is_sorted_des((*lista), (*listb)))
+	{
+		if((*lista)->value < (*lista)->next->next->value)
 			ra(lista, 1);
 		else 
 			sa(lista, 1);
@@ -60,7 +71,7 @@ void	sort_V2(t_stack **lista,t_stack **listb)
 	i = 1;
 	start = 1;
 	end = 20;	
-	while(!is_sorted((*lista), (*listb)))
+	while(!is_sorted_asc((*lista), (*listb)))
 	{
 		while (i <= end)
 		{
@@ -82,3 +93,5 @@ void	sort_V2(t_stack **lista,t_stack **listb)
 			end = 100;
 	}
 }
+
+void	

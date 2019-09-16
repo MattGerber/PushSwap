@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 10:41:09 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/09 13:44:12 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/16 11:10:17 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int		main(int argc, char **argv)
 	}
 		// ft_putstr("\n\n");
 		// print_stack(stackb);
-	if (is_sorted(stacka, stackb))
+	if (is_sorted_asc(stacka, stackb))
 	 {
 		//  print_stack(stacka);
 		ft_putendl("OK");

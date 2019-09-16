@@ -6,13 +6,13 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/09 12:05:52 by magerber         ###   ########.fr       */
+/*   Updated: 2019/09/16 11:07:15 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/push_swap.h"
 
-int		is_sorted(t_stack *stacka, t_stack *stackb)
+int		is_sorted_asc(t_stack *stacka, t_stack *stackb)
 {
 	if (stackb != NULL || stacka == NULL)
 		return (0);
@@ -70,3 +70,15 @@ int		input_dupe_check(char **nums)
 	return (1);
 }
 
+int		is_sorted_des(t_stack *stacka, t_stack *stackb)
+{
+	if (stackb != NULL || stacka == NULL)
+		return (0);
+	while (stacka->next != NULL)
+	{
+		if (stacka->value < stacka->next->value)
+			return (0);
+		stacka = stacka->next;
+	}
+	return (1);
+}
