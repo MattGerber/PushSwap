@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 10:41:09 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/16 16:22:31 by magerber         ###   ########.fr       */
+/*   Updated: 2020/01/14 15:09:01 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	do_op(char *command, t_stack **stacka, t_stack **stackb)
 	if (ft_strequ(command, "pb"))      //if (command ==  "pb")
 		pb(stacka, stackb, 0);
  	else if (ft_strequ(command, "pa"))
- 		pa(stackb, stacka, 0);
+ 		pa(stacka, stackb, 0);
  	else if (ft_strequ(command, "sa"))
  		sa(stacka, 0);
  	else if (ft_strequ(command, "ss"))
@@ -78,7 +78,7 @@ int		main(int argc, char **argv)
 	{
 		do_op(command, &stacka, &stackb);
 		// ft_putendl(command);
-		print_stack(stacka);
+		// print_stack(stacka);
 	 	free(command);
 	}
 		// ft_putstr("\n\n");

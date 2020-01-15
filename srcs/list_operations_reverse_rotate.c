@@ -6,64 +6,63 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:06 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/16 16:35:55 by magerber         ###   ########.fr       */
+/*   Updated: 2020/01/14 14:48:35 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/push_swap.h"
 
-void	rra(t_stack **stacka, int i)
+void	rra(t_stack **stack_a, int i)
 {
-{
-	t_stack	*starta;
-	t_stack	*first;
 	t_stack	*last;
+	t_stack	*second_last;
 
-	starta = *stacka;
-	first = starta->next;
-	last = first->next;
-	if (first != NULL && last != NULL)
+	if ((!*stack_a) || (stack_length(stack_a) < 2))
+		return ;
+	last = *stack_a;
+	second_last = NULL;
+	while (last->next != NULL)
 	{
-		while (last->next)
-			last = last->next;
-		starta->next = last;
-		last->previous->next = NULL;
-		last->previous = starta;
-		last->next = first;
-		first->previous = last;
+		second_last = last;
+		last = last->next;
 	}
+	second_last->next = NULL;
+	last->previous= NULL;
+	last->next = *stack_a;
+	*stack_a = last;
+	if (i)
+		ft_putendl_fd("rra", 1);
 }
-	if (i == 1)
-		ft_putendl("rra");
-}
-void	rrb(t_stack **stackb, int i)
+
+
+
+void	rrb(t_stack **stack_b, int i)
 {
-	t_stack	*startb;
-	t_stack	*first;
 	t_stack	*last;
+	t_stack	*second_last;
 
-	startb = *stackb;
-	first = startb->next;
-	last = (*stackb)->next->next;
-	if (first != NULL && last != NULL)
+	if ((!*stack_b) || (stack_length(stack_b) < 2))
+		return ;
+	last = *stack_b;
+	second_last = NULL;
+	while (last->next != NULL)
 	{
-		while (last->next != NULL)
-			last = last->next;
-		startb->next = last;
-		last->previous->next = NULL;
-		last->previous = startb;
-		last->next = first;
-		first->previous = last;
+		second_last = last;
+		last = last->next;
 	}
-	if (i == 1)
-		ft_putendl("rrb");
+	second_last->next = NULL;
+	last->previous= NULL;
+	last->next = *stack_b;
+	*stack_b = last;
+	if (i)
+		ft_putendl_fd("rrb", 1);
 }
 
 
-void	rrr(t_stack **stacka, t_stack **stackb, int i)
+void	rrr(t_stack **stack_a, t_stack **stack_b, int i)
 {
-	rra(stacka, 0);
-	rrb(stackb, 0);
-	if (i == 1)
-		ft_putendl("rrr");
+	rra(stack_a, 0);
+	rrb(stack_b, 0);
+	if (i)
+		ft_putendl_fd("rrr", 1);
 }

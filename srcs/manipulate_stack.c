@@ -6,11 +6,33 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/16 16:16:34 by magerber         ###   ########.fr       */
+/*   Updated: 2020/01/14 14:57:00 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/push_swap.h"
+
+void		stack_add_head(t_stack **head, t_stack *node)
+{
+	t_stack	*tmp;
+
+	if (!(head) || (!(node)))
+		return ;
+	tmp = *head;
+	if (tmp)
+	{
+		tmp->previous= node;
+		node->next = *head;
+		node->previous = NULL;
+		*head = node;
+	}
+	else
+	{
+		node->next = NULL;
+		node->previous= NULL;
+		*head = node;
+	}
+}
 
 t_stack	*initialise_stack(int count, char **args, int 	i)
 {

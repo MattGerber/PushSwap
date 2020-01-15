@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:45:26 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/16 16:19:39 by magerber         ###   ########.fr       */
+/*   Updated: 2020/01/14 15:03:46 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,95 +87,54 @@ void	sort_V2(t_stack **lista,t_stack **listb)
 
 void	sort_stack(t_stack **stacka, t_stack **stackb)
 {
-	t_bestmove	currentmove;
-	t_bestmove	bestmove;
-	t_stack		*start;
-	t_stack		*end;
-	int			stacksize;
+	int i;
 
-	stacksize = stack_length(stacka);
-	while(stacka)
-	{
-		stacksize = push_smallest((*stacka));
-		if(stacksize > 0)
-		{
-			while (stacksize > 0)
-			{
+	while(*stacka){	
+		i = push_smallest(*stacka);
+		while(i != 0){
+			if(i < 0){
+				rra(stacka, 1);
+				i++;
+			}else {
 				ra(stacka, 1);
-				stacksize--;
-				ft_putnbr(stacksize);
+				i--;
 			}
 		}
-		else if (stacksize < 0)
-		{
-			while (stacksize != 0)
-			{
-				rra(stacka, 1);
-				stacksize++;
-				ft_putnbr(stacksize);
-			}	
-		}
-		if (stacksize == 0)
+		if (i == 0)
 			pb(stacka, stackb, 1);
 	}
-	while ((*stackb))
-	{
-		pa(stackb, stacka, 1);
-	}
+
+		while (*stackb)
+		{
+			pa(stacka, stackb, 1);
+			// printf("%d", (*stacka)->weight);
+		}
+	
 }
 
-int		push_biggest(t_stack *stacka)
-{
-	int		i;
-	int		reti;
-	t_stack	*list;
-	t_stack	*retnum;
+int		push_smallest(t_stack *stacka){
 
+	int smalli;
+	int i;
+	t_stack *smallstack;
+	t_stack *current;
+
+	current = stacka;
+	smallstack = stacka;
+	smalli = 0;
 	i = 0;
-	list = stacka;
-	retnum = stacka;
-	reti = 0;
-	while(stack_length(&stacka) >= i )
-	{
-		if (list->weight > retnum->weight)
-		{	
-			reti = i;
-			retnum = list;
-		}
-		if (list->next)
-			list = list->next;
-		i++;						
-	}
-	if (i > (stack_length(&stacka) / 2))
-		i = (i - (stack_length(&stacka) / 2) * -1);
-	return (i);
-}
 
-int		push_smallest(t_stack *stacka)
-{
-	int		i;
-	int		reti;
-	int		stacklen;
-	t_stack	*list;
-	t_stack	*retnum;
-
-	i = 0;
-	stacklen = stack_length(&stacka);
-	list = stacka;
-	retnum = stacka;
-	reti = 0;
-	while(stacklen >= i )
-	{
-		if (list->weight < retnum->weight)
-		{	
-			reti = i;
-			retnum = list;
+	while (current) {
+		if (current->weight < smallstack->weight){
+			smallstack = current;
+			smalli = i;
 		}
-		if (list->next)
-			list = list->next;
-		i++;						
+		current = current->next;
+		i++;
 	}
-	if (i > (stacklen / 2))
-		i = ((i - (stacklen / 2)) * -1);
-	return (i);	
+	if (smalli > (i / 2)){
+		smalli = (smalli - i);
+	}
+
+	return(smalli);
 }

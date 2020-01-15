@@ -1,0 +1,2 @@
+ARG=`ruby -e "puts (0..99).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker $ARG === Single string output
+ARG=`ruby -e "puts (0..99).to_a.shuffle"`; ./push_swap $ARG | ./checker $ARG === Multiple outputs per number

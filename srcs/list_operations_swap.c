@@ -6,46 +6,64 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:00 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/09 12:05:33 by magerber         ###   ########.fr       */
+/*   Updated: 2020/01/14 14:48:13 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/push_swap.h"
 
-void	sa(t_stack **listhead, int i)
-{
-	t_stack	*nextelem;
-	int		temp;
 
-	if ((*listhead) == NULL || stack_length(listhead) == 1)
+void	sa(t_stack **stack_a, int i)
+{
+	t_stack		*temp;
+	t_stack		*next_temp;
+
+	if (!*stack_a)
 		return ;
-	nextelem = (*listhead)->next;
-	temp = (*listhead)->value;
-	(*listhead)->value = nextelem->value;
-	nextelem->value = temp;
-	if (i == 1)
-		ft_putendl("sa");
+	if ((*stack_a)->next != NULL)
+	{
+		temp = *stack_a;
+		next_temp = (*stack_a)->next;
+		temp->previous = next_temp;
+		temp->next = next_temp->next;
+		next_temp->previous = NULL;
+		next_temp->next = temp;
+		*stack_a = next_temp;
+		if (i)
+			ft_putendl_fd("sa", 1);
+	}
 }
 
-void	sb(t_stack **listhead, int i)
-{
-	t_stack	*nextelem;
-	int		temp;
 
-	if ((*listhead) == NULL || stack_length(listhead) == 1)
+void	sb(t_stack **stack_b, int i)
+{
+	t_stack		*temp;
+	t_stack		*next_temp;
+
+	if (!*stack_b)
 		return ;
-	nextelem = (*listhead)->next;
-	temp = (*listhead)->value;
-	(*listhead)->value = nextelem->value;
-	nextelem->value = temp;
-	if (i == 1)
-		ft_putendl("pb");
+	if ((*stack_b)->next != NULL)
+	{
+		temp = *stack_b;
+		next_temp = (*stack_b)->next;
+		temp->previous = next_temp;
+		temp->next = next_temp->next;
+		next_temp->previous = NULL;
+		next_temp->next = temp;
+		*stack_b = next_temp;
+		if (i)
+			ft_putendl_fd("sb", 1);
+	}
 }
 
-void	ss(t_stack **listheada, t_stack **listheadb, int i)
+/*
+** ss: sa and sb at the same time.
+*/
+
+void	ss(t_stack **stack_a, t_stack **stack_b, int i)
 {
-	sa(listheada, 0);
-	sb(listheadb, 0);
-	if (i == 1)
-		ft_putendl("pb");
+	sa(stack_a, 0);
+	sb(stack_b, 0);
+	if (i)
+		ft_putendl_fd("ss", 1);
 }
