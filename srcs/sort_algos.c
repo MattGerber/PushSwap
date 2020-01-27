@@ -6,30 +6,11 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:45:26 by magerber          #+#    #+#             */
-/*   Updated: 2020/01/14 15:03:46 by magerber         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:08:52 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/push_swap.h"
-
-void	sort_ineffeciently(t_stack **lista,t_stack **listb, int start, int end)
-{
-	int i = start;
-	// print_stack(lista);
-	// ft_putchar('\n');
-	while (i <= end)
-	{
-		if ((*listb)->weight == end)
-		{
-			i++;
-			pa(lista, listb, 1);
-		}
-		else
-		{
-			rb(listb, 1);
-		}
-	}
-}
 
 void	sort_three_asc(t_stack **lista,t_stack **listb)
 {
@@ -53,67 +34,166 @@ void	sort_three_des(t_stack **lista,t_stack **listb)
 	}	
 }
 
-void	sort_V2(t_stack **lista,t_stack **listb)
+t_bestmove	*bestmove(t_stack *stacka, t_stack *stackb)
 {
-	int		start;
-	int		end;
-	int		i;
+	t_bestmove	*best;
+	t_bestmove	*current;
+	t_stack		*a;
+	int			i;
 
-	i = 1;
-	start = 1;
-	end = 20;	
-	while(!is_sorted_asc((*lista), (*listb)))
+	best->a_move = 0;
+	best->b_move = 0;
+	best->total = 0;
+	i = 0;
+	while (a)
 	{
-		while (i <= end)
-		{
-			if((*lista)->weight <= end & (*lista)->weight >= start)
-			{
-				pb(lista, listb, 1);
-				i++;
-			}
-			else
-			{
-				ra(lista, 0);
-			}
-			
-		}
-		sort_ineffeciently(lista, listb, start, end);
-		start += 20;
-		end += 20;
-		if (end > 100)
-			end = 100;
+		current->a_move = (i > (stack_length(stacka) / 2)) ? i - stack_length(stacka) : i;
+		current->b_move = calculate_bmove(stackb, a->weight);
+		if (current->a_move < 0 && current->b_move < 0 || current->a_move > 0 && current->b_move > 0)
+			current->total = (current->a_move < current->b_move) ? current->b_move : current->a_move;
+		else 
+			current->total = (current->a_move + current->b_move);
+		current->total = (current->total < 0) ? current->total * -1 : current->total;
+		if (current->total < best->total)
+			best = current;
+		a = a->next;
+		i++;
 	}
+	return(best);
 }
 
-void	sort_stack(t_stack **stacka, t_stack **stackb)
+void		sort_stack(t_stack **stacka, t_stack **stackb)
 {
-	int i;
+	int	i;
+	t_bestmove	*move;
 
-	while(*stacka){	
-		i = push_smallest(*stacka);
-		while(i != 0){
-			if(i < 0){
-				rra(stacka, 1);
-				i++;
-			}else {
-				ra(stacka, 1);
-				i--;
-			}
-		}
-		if (i == 0)
-			pb(stacka, stackb, 1);
-	}
-
-		while (*stackb)
+	move = bestmove(*stacka, *stackb);
+	
+	while (move->a_move && move->b_move)
+	{
+		if (move->a_move < 0 && move->b_move < 0)
 		{
-			pa(stacka, stackb, 1);
-			// printf("%d", (*stacka)->weight);
+			rrr(stacka, stackb, 1);
+			move->a_move++;
+			move->b_move++;
 		}
+		else 
+			rr(stacka, stackb, 1);
+	}
+	
+	// while(*stacka){	
+	// 	i = push_smallest(*stacka);
+	// 	while(i != 0){
+	// 		if(i < 0){
+	// 			rra(stacka, 1);
+	// 			i++;
+	// 		}else {
+	// 			ra(stacka, 1);
+	// 			i--;
+	// 		}
+	// 	}
+	// 	if (i == 0)
+	// 		pb(stacka, stackb, 1);
+	// }
+
+	// 	while (*stackb)
+	// 	{
+	// 		pa(stacka, stackb, 1);
+	// 		// printf("%d", (*stacka)->weight);
+	// 	}
 	
 }
 
-int		push_smallest(t_stack *stacka){
+int		calculate_bmove(t_stack *stackb, int numweight)
+{
+	int		move;
+	int 	i;
+	t_stack *smallstack;
+	t_stack *current;
+	if (numweight > find_biggest(stackb))
+		move = push_biggest(stackb);
+	else if (numweight < find_smallest(stackb))
+		move = push_smallest(stackb);
+	else 
+	{
+	current = stackb;
+	smallstack = stackb;
+	i = 0;
+	while (current)
+	{
+		if (current->weight < numweight && smallstack->weight < current->weight)
+		{
+			smallstack = current;
+			move = i;
+		}
+		current = current->next;
+		i++;
+	}
+		if (move > (i / 2))
+		{
+			move = (move - i);
+		}
+	}
+	return(move);
+}
 
+int		find_biggest(t_stack *stacka){
+
+	t_stack *bigstack;
+	t_stack *current;
+
+	current = stacka;
+	bigstack = stacka;
+	while (current) {
+		if (current->weight > bigstack->weight)
+			bigstack = current;
+		current = current->next;
+	}
+	return(bigstack->weight);
+}
+
+int		find_smallest(t_stack *stacka)
+{
+	t_stack *smallstack;
+	t_stack *current;
+
+	current = stacka;
+	smallstack = stacka;
+	while (current) {
+		if (current->weight < smallstack->weight)
+			smallstack = current;
+		current = current->next;
+	}
+	return(smallstack->weight);
+}
+
+int		push_biggest(t_stack *stacka)
+{
+	int bigi;
+	int i;
+	t_stack *bigstack;
+	t_stack *current;
+
+	current = stacka;
+	bigstack = stacka;
+	bigi = 0;
+	i = 0;
+	while (current) {
+		if (current->weight > bigstack->weight){
+			bigstack = current;
+			bigi = i;
+		}
+		current = current->next;
+		i++;
+	}
+	if (bigi > (i / 2)){
+		bigi = (bigi - i);
+	}
+	return(bigi);
+}
+
+int		push_smallest(t_stack *stacka)
+{
 	int smalli;
 	int i;
 	t_stack *smallstack;
@@ -123,9 +203,8 @@ int		push_smallest(t_stack *stacka){
 	smallstack = stacka;
 	smalli = 0;
 	i = 0;
-
 	while (current) {
-		if (current->weight < smallstack->weight){
+		if (current->weight > smallstack->weight){
 			smallstack = current;
 			smalli = i;
 		}
@@ -135,6 +214,5 @@ int		push_smallest(t_stack *stacka){
 	if (smalli > (i / 2)){
 		smalli = (smalli - i);
 	}
-
 	return(smalli);
 }
