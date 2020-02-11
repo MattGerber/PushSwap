@@ -138,11 +138,11 @@ void		sort_stack(t_stack **stacka, t_stack **stackb)
 					move->a_move--;
 					move->b_move--;
 				}
-		}
+			}
 		}
 
-			if (execute_move(stacka, move->a_move, 'a') == 0 &&	execute_move(stackb, move->b_move, 'b') == 0)
-				pb(stacka, stackb, 1);
+		if (execute_move(stacka, move->a_move, 'a') == 0 &&	execute_move(stackb, move->b_move, 'b') == 0)
+			pb(stacka, stackb, 1);
 	}
 
 	while ((*stackb)->weight != stack_length(stackb))
