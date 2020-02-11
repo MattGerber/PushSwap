@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:50:20 by magerber          #+#    #+#             */
-/*   Updated: 2020/01/25 23:38:06 by magerber         ###   ########.fr       */
+/*   Updated: 2020/01/28 11:52:46 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ int					is_sorted_des(t_stack *stacka, t_stack *stackb);
 void				sort_three_des(t_stack **lista,t_stack **listb);
 int					find_biggest(t_stack *stacka);
 int					find_smallest(t_stack *stacka);
+int					push_biggest(t_stack *stacka);
+int					push_smallest(t_stack *stacka);
 void				sort_stack(t_stack **stacka, t_stack **stackb);
+int					calculate_bmove(t_stack *stackb, int numweight);
+int					sorted(t_stack *stack);
 
 #endif

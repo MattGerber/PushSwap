@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
-/*   Updated: 2019/09/16 11:07:15 by magerber         ###   ########.fr       */
+/*   Updated: 2020/01/28 11:53:08 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,3 +82,15 @@ int		is_sorted_des(t_stack *stacka, t_stack *stackb)
 	}
 	return (1);
 }
+
+int		sorted(t_stack *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->value < stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+

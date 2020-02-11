@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:57 by magerber          #+#    #+#             */
-/*   Updated: 2020/01/14 14:57:00 by magerber         ###   ########.fr       */
+/*   Updated: 2020/01/28 11:22:20 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,11 @@ void	print_stack(t_stack *start)
 			// "item %d = %d\n", count, currentnode->value);
 		}
 	}
+	else
+	{
+		ft_putendl("NULL");
+	}
+	
 }
 
 void	print_weight(t_stack *start)
