@@ -16,8 +16,9 @@ int		is_sorted_asc(t_stack *stacka, t_stack *stackb)
 {
 	if (stackb != NULL || stacka == NULL)
 		return (0);
-	while (stacka->next != NULL)
+	while (stacka->next)
 	{
+		// printf("%d > %d \n", stacka->value, stacka->next->value);
 		if (stacka->value > stacka->next->value)
 			return (0);
 		stacka = stacka->next;

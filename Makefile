@@ -61,7 +61,7 @@ LIB = libft
 NAME_CH = checker
 NAME_PS = push_swap
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 SRC_DIR = ./srcs/
 INC_DIR = ./includes/
 OBJ_DIR = ./srcs/
@@ -90,8 +90,13 @@ $(NAME_CH): $(OBJ_CH)
 	@echo "[$(NAME_CH)] compiled"
 
 $(NAME_PS): $(OBJ_PS)
-	@$(CC) -o $(NAME_PS) $(FLAGS) $(OPTIONS) $(OBJ_PS) 
+	$(CC) -o  $(NAME_PS) $(FLAGS) $(OPTIONS) $(OBJ_PS) 
 	@echo "[$(NAME_PS)] compiled"
+
+
+push_debug: 
+	@$(CC) -g -I./libft ./libft/libft.a srcs/*.c -o push_swap_debug
+
 
 clean: cleanlib
 	@/bin/rm -f $(SRC_DIR)*.o

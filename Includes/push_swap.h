@@ -65,5 +65,6 @@ int					push_smallest(t_stack *stacka);
 void				sort_stack(t_stack **stacka, t_stack **stackb);
 int					calculate_bmove(t_stack *stackb, int numweight);
 int					sorted(t_stack *stack);
+void				stack_add_head(t_stack **head, t_stack *node);
 
 #endif

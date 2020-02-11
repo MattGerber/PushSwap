@@ -37,6 +37,26 @@ void		add_num_weight(t_stack **stacka)
 	}
 }
 
+void		sort_five(t_stack *stacka, t_stack *stackb)
+{
+	while(stack_length(&stackb) < 3)
+	{
+		if(stacka->weight == 5 || stacka->weight == 4)
+			ra(&stacka, 1);
+		else 
+			pb(&stacka, &stackb, 1);
+	}
+	while(!sorted(stackb))
+	{
+		if(stackb->value < stackb->next->next->value)
+			rb(&stackb, 1);
+		else 
+			sb(&stackb, 1);
+	}	
+	while(stackb)
+		pa(&stacka, &stackb, 1);
+}
+
 int			main(int argc, char **argv)
 {
 	t_stack	*stacka;
@@ -68,11 +88,11 @@ int			main(int argc, char **argv)
 		}
 		stacka = initialise_stack(argc, numbers, 1);
 	}
-	// print_stack(stacka);
 	add_num_weight(&stacka);
-	sort_stack(&stacka, &stackb);
-	print_stack(stacka);
-
-	ft_putendl("\n\nstackb \n\n");
-	print_stack(stackb);
+	if (stack_length(&stacka) == 3)
+		sort_three_asc(&stacka, &stackb);
+	else if (stack_length(&stacka) == 5)
+		sort_five(stacka, stackb);
+	else
+		sort_stack(&stacka, &stackb);
 }

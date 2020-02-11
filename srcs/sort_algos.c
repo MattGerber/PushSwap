@@ -12,18 +12,24 @@
 
 #include "../Includes/push_swap.h"
 
-int		execute_move(t_stack **list, int i)
+int		execute_move(t_stack **list, int i, char c)
 {
 	while(i != 0)
 	{
 		if (i < 0)
 		{
-			rra(list, 1);
+			if (c == 'a')
+				rra(list, 1);
+			else
+				rrb(list, 1);
 			i++;
 		}
 		else
 		{
-			ra(list, 1);
+			if (c == 'a')
+				ra(list, 1);
+			else
+				rb(list, 1);
 			i--;
 		}
 	}
@@ -72,8 +78,9 @@ t_bestmove	*bestmove(t_stack *stacka, t_stack *stackb)
 	while (a)
 	{
 		if (i > (stack_length(&stacka) / 2)){
-			i = (i- stack_length(&stacka));
+			i = (i - stack_length(&stacka));
 		}
+		current->a_move = i;
 		current->b_move = calculate_bmove(stackb, a->weight);
 		if (current->a_move < 0 && current->b_move < 0)
 			current->total = (current->a_move < current->b_move) ? current->a_move : current->b_move;
@@ -85,7 +92,11 @@ t_bestmove	*bestmove(t_stack *stacka, t_stack *stackb)
 			current->total = (current->a_move + current->b_move);
 		current->total = (current->total < 0) ? current->total * -1 : current->total;
 		if (current->total < best->total || best->total == -1)
-			best = current;
+		{
+			best->a_move = current->a_move;
+			best->b_move = current->b_move;
+			best->total = current->total;
+		}
 		a = a->next;
 		i++;
 	}
@@ -98,10 +109,8 @@ void		sort_stack(t_stack **stacka, t_stack **stackb)
 	t_bestmove	*move;
 	
 	move = (t_bestmove *)malloc(sizeof(t_bestmove));
-	execute_move(stacka, push_biggest(*stacka));
 	pb(stacka, stackb, 1);
 	pb(stacka, stackb, 1);
-	execute_move(stacka, push_smallest(*stacka));
 	pb(stacka, stackb, 1);
 	while(!sorted((*stackb)))
 	{
@@ -110,24 +119,9 @@ void		sort_stack(t_stack **stacka, t_stack **stackb)
 		else 
 			sb(stackb, 1);
 	}	
-	print_stack(*stackb);
-
-
-	// move = bestmove(*stacka, *stackb);
 	while (*stacka)
 	{
 		move = bestmove(*stacka, *stackb);
-		ft_putstr("a = ");
-		ft_putnbr(move->a_move);
-		ft_putchar('\n');
-				ft_putstr("b = ");
-		ft_putnbr(move->b_move);
-		ft_putchar('\n');
-				ft_putstr("t = ");
-		ft_putnbr(move->total);
-		ft_putchar('\n');
-		
-		// printf("a = %d \n b = %d \n t = %d", move->a_move, move->b_move, move->total);
 		if ((move->a_move < 0 && move->b_move < 0) || (move->a_move > 0 && move->b_move > 0))
 		{
 			while (move->a_move != 0 && move->b_move != 0)
@@ -147,7 +141,7 @@ void		sort_stack(t_stack **stacka, t_stack **stackb)
 		}
 		}
 
-			if (execute_move(stacka, move->a_move) == 0 &&	execute_move(stackb, move->b_move) == 0)
+			if (execute_move(stacka, move->a_move, 'a') == 0 &&	execute_move(stackb, move->b_move, 'b') == 0)
 				pb(stacka, stackb, 1);
 	}
 
@@ -162,29 +156,70 @@ void		sort_stack(t_stack **stacka, t_stack **stackb)
 	
 }
 
+int		findnum_move(t_stack *stackb, int numweight)
+{
+	int i;
+	t_stack *current;
+
+	i = 0;
+	current = stackb;
+	while (current->weight != numweight)
+	{
+		i++;
+		current = current->next;
+	}
+	return(i);
+}
+
 int		calculate_bmove(t_stack *stackb, int numweight)
 {
-	int		move;
-	int 	i;
 	t_stack *smallstack;
 	t_stack *current;
-	move = 0;
-	current = stackb;
-	smallstack = stackb;
+	t_stack *after;
+	int 	i;
+	int		move;
 	i = 0;
-	while (current)
+
+	current = stackb;
+	after = stackb->next;
+	smallstack = stackb;
+
+	if (numweight > find_biggest(stackb))
 	{
-		if (current->weight > numweight && smallstack->weight > current->weight)
-		{
-			smallstack = current;
-			move = i + 1;
-		}
-		current = current->next;
-		i++;
+		move = push_biggest(stackb);
 	}
-		if (move > (i / 2))
+	else if (numweight < find_smallest(stackb))
+	{	
+		move = push_smallest(stackb);
+	}
+	else 
+	{
+		while (current)
 		{
-			move = (move - i);
+			if (current->weight > numweight && after->weight < numweight)
+			{
+		
+				if (after->weight > current->weight)
+					smallstack = current;
+				else
+					smallstack = after;
+			
+			}
+			current = current->next;
+			i++;
+			if (current)
+			{
+				if (current->next == NULL)
+					after = stackb;
+				else
+					after= current->next;
+			}
+		}
+		move = findnum_move(stackb, smallstack->weight);
+	}
+		if (move > (stack_length(&stackb) / 2))
+		{
+			move = move - stack_length(&stackb);
 		}
 	return(move);
 }
@@ -238,9 +273,6 @@ int		push_biggest(t_stack *stacka)
 		current = current->next;
 		i++;
 	}
-	if (bigi > (i / 2)){
-		bigi = (bigi - i);
-	}
 	return(bigi);
 }
 
@@ -263,8 +295,5 @@ int		push_smallest(t_stack *stacka)
 		current = current->next;
 		i++;
 	}
-	if (smalli > (i / 2)){
-		smalli = (smalli - i);
-	}
-	return(smalli);
+	return(smalli + 1);
 }
