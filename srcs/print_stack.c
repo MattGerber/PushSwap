@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   print_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/11 10:41:09 by magerber          #+#    #+#             */
-/*   Updated: 2020/02/12 14:00:20 by magerber         ###   ########.fr       */
+/*   Created: 2020/02/12 12:19:00 by magerber          #+#    #+#             */
+/*   Updated: 2020/02/12 13:03:02 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/push_swap.h"
 
-int		main(int argc, char **argv)
+void	print_stack(t_stack *start)
 {
-	t_stack	*stacka;
-	t_stack	*stackb;
-	char	**numbers;
+	t_stack	*currentnode;
+	int		count;
 
-	stackb = NULL;
-	if (argc == 2)
+	if (start != NULL)
 	{
-		numbers = ft_strsplit(argv[1], ' ');
-		if (errors(numbers))
-			stacka = initialise_stack(numbers, 0);
-		else
-			return (0);
-		free(numbers);
+		count = 0;
+		currentnode = start;
+		while (currentnode)
+		{
+			count++;
+			ft_putstr("item ");
+			ft_putnbr(count);
+			ft_putstr(" = ");
+			ft_putnbr(currentnode->value);
+			ft_putendl("");
+			currentnode = currentnode->next;
+		}
 	}
 	else
 	{
-		numbers = argv;
-		if (errors(numbers))
-			stacka = initialise_stack(numbers, 1);
-		else
-			return (0);
+		ft_putendl("NULL");
 	}
-	start_checker(stacka, stackb);
-	clean_stack(stacka, stackb);
-	while(1){}
 }

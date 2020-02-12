@@ -6,12 +6,11 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:51:43 by magerber          #+#    #+#             */
-/*   Updated: 2020/01/14 14:52:55 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 11:53:00 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/push_swap.h"
-
 
 void	ra(t_stack **stack_a, int i)
 {

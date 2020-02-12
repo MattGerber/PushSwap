@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:06 by magerber          #+#    #+#             */
-/*   Updated: 2020/01/14 14:48:35 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 11:54:21 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ void	rra(t_stack **stack_a, int i)
 		last = last->next;
 	}
 	second_last->next = NULL;
-	last->previous= NULL;
+	last->previous = NULL;
 	last->next = *stack_a;
 	*stack_a = last;
 	if (i)
 		ft_putendl_fd("rra", 1);
 }
-
-
 
 void	rrb(t_stack **stack_b, int i)
 {
@@ -51,13 +49,12 @@ void	rrb(t_stack **stack_b, int i)
 		last = last->next;
 	}
 	second_last->next = NULL;
-	last->previous= NULL;
+	last->previous = NULL;
 	last->next = *stack_b;
 	*stack_b = last;
 	if (i)
 		ft_putendl_fd("rrb", 1);
 }
-
 
 void	rrr(t_stack **stack_a, t_stack **stack_b, int i)
 {

@@ -6,12 +6,11 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:52:00 by magerber          #+#    #+#             */
-/*   Updated: 2020/01/14 14:48:13 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 12:00:43 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/push_swap.h"
-
 
 void	sa(t_stack **stack_a, int i)
 {
@@ -34,7 +33,6 @@ void	sa(t_stack **stack_a, int i)
 	}
 }
 
-
 void	sb(t_stack **stack_b, int i)
 {
 	t_stack		*temp;
@@ -55,10 +53,6 @@ void	sb(t_stack **stack_b, int i)
 			ft_putendl_fd("sb", 1);
 	}
 }
-
-/*
-** ss: sa and sb at the same time.
-*/
 
 void	ss(t_stack **stack_a, t_stack **stack_b, int i)
 {

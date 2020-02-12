@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:00:39 by magerber          #+#    #+#             */
-/*   Updated: 2020/01/28 11:53:08 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 11:55:34 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		is_sorted_asc(t_stack *stacka, t_stack *stackb)
 		return (0);
 	while (stacka->next)
 	{
-		// printf("%d > %d \n", stacka->value, stacka->next->value);
 		if (stacka->value > stacka->next->value)
 			return (0);
 		stacka = stacka->next;
@@ -38,7 +37,7 @@ int		num_input_check(char **nums)
 		j = 0;
 		while (nums[i][j])
 		{
-			if (!ft_isdigit(nums[i][j]) || ft_atol(&nums[i][j]) > 2147483647 
+			if (!ft_isdigit(nums[i][j]) || ft_atol(&nums[i][j]) > 2147483647
 			|| ft_atol(&nums[i][j]) <= -2147483648)
 				return (0);
 			j++;
@@ -55,7 +54,7 @@ int		input_dupe_check(char **nums)
 
 	i = 1;
 	j = 1;
-	while(nums[i])
+	while (nums[i])
 	{
 		j = 0;
 		while (nums[j])
@@ -94,4 +93,3 @@ int		sorted(t_stack *stack)
 	}
 	return (1);
 }
-

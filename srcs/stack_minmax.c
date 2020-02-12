@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_minmax.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.wethinkcode.    +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:33:14 by theDude           #+#    #+#             */
-/*   Updated: 2020/02/12 11:06:14 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 12:36:25 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		find_biggest(t_stack *stacka)
 {
-
 	t_stack *bigstack;
 	t_stack *current;
 
@@ -26,7 +25,7 @@ int		find_biggest(t_stack *stacka)
 			bigstack = current;
 		current = current->next;
 	}
-	return(bigstack->weight);
+	return (bigstack->weight);
 }
 
 int		find_smallest(t_stack *stacka)
@@ -42,13 +41,13 @@ int		find_smallest(t_stack *stacka)
 			smallstack = current;
 		current = current->next;
 	}
-	return(smallstack->weight);
+	return (smallstack->weight);
 }
 
 int		push_biggest(t_stack *stacka)
 {
-	int bigi;
-	int i;
+	int		bigi;
+	int		i;
 	t_stack *bigstack;
 	t_stack *current;
 
@@ -66,13 +65,13 @@ int		push_biggest(t_stack *stacka)
 		current = current->next;
 		i++;
 	}
-	return(bigi);
+	return (bigi);
 }
 
 int		push_smallest(t_stack *stacka)
 {
-	int smalli;
-	int i;
+	int		smalli;
+	int		i;
 	t_stack *smallstack;
 	t_stack *current;
 
@@ -90,7 +89,7 @@ int		push_smallest(t_stack *stacka)
 		current = current->next;
 		i++;
 	}
-	return(smalli + 1);
+	return (smalli + 1);
 }
 
 void	algo_pushback(t_stack **stacka, t_stack **stackb)
@@ -98,7 +97,7 @@ void	algo_pushback(t_stack **stacka, t_stack **stackb)
 	int i;
 
 	i = 0;
-	if((*stackb)->weight > (stack_length(stackb) / 2))
+	if ((*stackb)->weight > (stack_length(stackb) / 2))
 		i = 1;
 	while ((*stackb)->weight != stack_length(stackb))
 	{
@@ -106,7 +105,7 @@ void	algo_pushback(t_stack **stacka, t_stack **stackb)
 			rrb(stackb, 1);
 		else
 			rb(stackb, 1);
-	}	
+	}
 	while (*stackb)
 	{
 		pa(stacka, stackb, 1);
