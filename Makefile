@@ -6,7 +6,7 @@
 #    By: magerber <magerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 10:32:42 by magerber          #+#    #+#              #
-#    Updated: 2020/02/12 13:47:03 by magerber         ###   ########.fr        #
+#    Updated: 2020/02/12 14:10:57 by magerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,8 +95,6 @@ $(NAME_CH): $(OBJ_CH)
 $(NAME_PS): $(OBJ_PS)
 	$(CC) -o  $(NAME_PS) $(FLAGS) $(OPTIONS) $(OBJ_PS) 
 	@echo "[$(NAME_PS)] compiled"
-
-
 
 
 clean: cleanlib
