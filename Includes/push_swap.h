@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:50:20 by magerber          #+#    #+#             */
-/*   Updated: 2020/01/28 11:52:46 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 11:00:28 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ void				sort_stack(t_stack **stacka, t_stack **stackb);
 int					calculate_bmove(t_stack *stackb, int numweight);
 int					sorted(t_stack *stack);
 void				stack_add_head(t_stack **head, t_stack *node);
+int					execute_move(t_stack **list, int i, char c);
+void				algo_pushback(t_stack **stacka, t_stack **stackb);
 
 #endif

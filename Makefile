@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: magerber <magerber@student.42.fr>          +#+  +:+       +#+         #
+#    By: magerber <magerber@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 10:32:42 by magerber          #+#    #+#              #
-#    Updated: 2019/09/16 16:06:08 by magerber         ###   ########.fr        #
+#    Updated: 2020/02/12 10:43:36 by magerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,7 @@ OBJ_CH += $(OBJ_DIR)list_operations_swap.o $(OBJ_DIR)manipulate_stack.o
 OBJ_PS = $(OBJ_DIR)push_swap.o $(OBJ_DIR)error_check.o $(OBJ_DIR)manipulate_stack.o
 OBJ_PS += $(OBJ_DIR)list_operations_reverse_rotate.o $(OBJ_DIR)list_operations_rotate.o
 OBJ_PS += $(OBJ_DIR)list_operations_swap.o $(OBJ_DIR)list_operations_push.o
-OBJ_PS += $(OBJ_DIR)sort_algos.o
+OBJ_PS += $(OBJ_DIR)sort_algos.o $(OBJ_DIR)algo_helpers.o $(OBJ_DIR)stack_minmax.c
 
 all: $(LIB) $(NAME_CH) $(NAME_PS)
 
@@ -94,8 +94,6 @@ $(NAME_PS): $(OBJ_PS)
 	@echo "[$(NAME_PS)] compiled"
 
 
-push_debug: 
-	@$(CC) -g -I./libft ./libft/libft.a srcs/*.c -o push_swap_debug
 
 
 clean: cleanlib
