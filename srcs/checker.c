@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 10:41:09 by magerber          #+#    #+#             */
-/*   Updated: 2020/02/12 14:00:20 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 15:10:18 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,4 @@ int		main(int argc, char **argv)
 	}
 	start_checker(stacka, stackb);
 	clean_stack(stacka, stackb);
-	while(1){}
 }

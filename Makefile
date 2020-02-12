@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: magerber <magerber@student.42.fr>          +#+  +:+       +#+         #
+#    By: magerber <magerber@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 10:32:42 by magerber          #+#    #+#              #
-#    Updated: 2020/02/12 14:10:57 by magerber         ###   ########.fr        #
+#    Updated: 2020/02/12 15:11:11 by magerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ LIB = libft
 NAME_CH = checker
 NAME_PS = push_swap
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Wall -Werror -Wextra 
 SRC_DIR = ./srcs/
 INC_DIR = ./includes/
 OBJ_DIR = ./srcs/
@@ -78,7 +78,7 @@ OBJ_PS = $(OBJ_DIR)push_swap.o $(OBJ_DIR)error_check.o $(OBJ_DIR)manipulate_stac
 OBJ_PS += $(OBJ_DIR)list_operations_reverse_rotate.o $(OBJ_DIR)list_operations_rotate.o
 OBJ_PS += $(OBJ_DIR)list_operations_swap.o $(OBJ_DIR)list_operations_push.o
 OBJ_PS += $(OBJ_DIR)sort_algos.o $(OBJ_DIR)algo_helpers.o $(OBJ_DIR)stack_minmax.c
-OBJ_PS += $(OBJ_DIR)algohelpersv2.o $(OBJ_DIR)start.o
+OBJ_PS += $(OBJ_DIR)algohelpersv2.o $(OBJ_DIR)start.o  $(OBJ_DIR)print_stack.o
 
 all: $(LIB) $(NAME_CH) $(NAME_PS)
 

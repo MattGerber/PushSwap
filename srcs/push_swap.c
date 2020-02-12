@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:26:40 by magerber          #+#    #+#             */
-/*   Updated: 2020/02/12 14:07:34 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 15:10:10 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/push_swap.h"
+
+ void		free_nums(char **numbers)
+ {
+	 int i;
+	 i = 0;
+	 while(numbers[i])
+	 {
+	 	free(numbers[i]);
+		 i++;
+	 }
+ }
 
 int			main(int argc, char **argv)
 {
@@ -35,8 +46,7 @@ int			main(int argc, char **argv)
 		else
 			return (0);
 	}
-		free(numbers);
 	start_push_swap(stacka, stackb);
-		// clean_stack(stacka, stackb);
-	while(1){}
+	if (argc == 2)
+		free_nums(numbers);
 }
