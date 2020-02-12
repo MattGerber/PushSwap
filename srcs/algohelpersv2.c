@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algohelpersv2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.wethinkcode.    +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 12:39:39 by magerber          #+#    #+#             */
-/*   Updated: 2020/02/12 15:33:36 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 17:59:57 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
