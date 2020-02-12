@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_algos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:45:26 by magerber          #+#    #+#             */
-/*   Updated: 2020/02/12 14:09:21 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 15:41:52 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,10 @@ void		sort_stack(t_stack **stacka, t_stack **stackb)
 		}
 		if ((execute_move(stacka, move->a_move, 'a') == 0)
 			&& (execute_move(stackb, move->b_move, 'b') == 0))
-			pb(stacka, stackb, 1);
+			{
+				pb(stacka, stackb, 1);
+			}
+		free(move);
 	}
-	free(move);
 	algo_pushback(stacka, stackb);
 }

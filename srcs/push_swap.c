@@ -6,7 +6,7 @@
 /*   By: magerber <magerber@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:26:40 by magerber          #+#    #+#             */
-/*   Updated: 2020/02/12 15:10:10 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 15:38:12 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ int			main(int argc, char **argv)
 		if (errors(numbers))
 			stacka = initialise_stack(numbers, 0);
 		else
+		{
 			return (0);
+			free_nums(numbers);
+		}
 	}
 	else
 	{

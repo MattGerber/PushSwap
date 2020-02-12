@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magerber <magerber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magerber <magerber@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:50:20 by magerber          #+#    #+#             */
-/*   Updated: 2020/02/12 13:53:52 by magerber         ###   ########.fr       */
+/*   Updated: 2020/02/12 15:28:05 by magerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ int					errors(char **numbers);
 void				start_push_swap(t_stack *stacka, t_stack *stackb);
 void				add_num_weight(t_stack **stacka);
 void				sort_five(t_stack *stacka, t_stack *stackb);
+void				free_nums(char **numbers);
 
 #endif
