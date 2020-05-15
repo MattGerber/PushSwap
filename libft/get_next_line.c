@@ -33,10 +33,8 @@ t_list	*ft_file(int fd, t_list **file)
 int		ft_generate_line(char *content, char **line)
 {
 	int		i;
-	char	*temp;
 
 	i = 0;
-	temp = *line;
 	while (content[i] && content[i] != '\n')
 		i++;
 	if (!(*line = ft_strndup(content, i)))

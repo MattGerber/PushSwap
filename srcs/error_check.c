@@ -35,9 +35,11 @@ int		num_input_check(char **nums)
 	while (nums[i])
 	{
 		j = 0;
+		if (ft_atoi(nums[i]) == 0)
+			return(0);
 		while (nums[i][j])
 		{
-			if (!ft_isdigit(nums[i][j]) || ft_atol(&nums[i][j]) > 2147483647
+			if (ft_atol(&nums[i][j]) > 2147483647
 			|| ft_atol(&nums[i][j]) <= -2147483648)
 				return (0);
 			j++;

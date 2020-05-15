@@ -30,9 +30,7 @@ static int	ft_size(int n)
 char		*ft_itoa(int n)
 {
 	char	*s;
-	int		i;
 
-	i = 0;
 	if (n == 0)
 	{
 		s = ft_strnew(1);

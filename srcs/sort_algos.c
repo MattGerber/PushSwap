@@ -88,7 +88,6 @@ void		start_algo(t_stack **stacka, t_stack **stackb)
 
 void		sort_stack(t_stack **stacka, t_stack **stackb)
 {
-	int			i;
 	t_bestmove	*move;
 
 	start_algo(stacka, stackb);
