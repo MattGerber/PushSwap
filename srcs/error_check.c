@@ -35,7 +35,7 @@ int		num_input_check(char **nums)
 	while (nums[i])
 	{
 		j = 0;
-		if (ft_atoi(nums[i]) == 0)
+		if (ft_atoi(nums[i]) == 0 && nums[i][j] != '0')
 			return(0);
 		while (nums[i][j])
 		{
