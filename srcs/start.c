@@ -61,6 +61,8 @@ void		do_op(char *command, t_stack **stacka, t_stack **stackb)
 		rrb(stackb, 0);
 	else if (ft_strequ(command, "rrr"))
 		rrr(stacka, stackb, 0);
+	else
+		ft_putendl("ERROR");
 }
 
 int			errors(char **numbers)
@@ -95,11 +97,14 @@ void		start_checker(t_stack *stacka, t_stack *stackb)
 
 void		start_push_swap(t_stack *stacka, t_stack *stackb)
 {
-	add_num_weight(&stacka);
-	if (stack_length(&stacka) == 3)
-		sort_three_asc(&stacka, &stackb);
-	else if (stack_length(&stacka) == 5)
-		sort_five(stacka, stackb);
-	else
-		sort_stack(&stacka, &stackb);
+	if(!is_sorted_asc(stacka, stackb))
+	{
+		add_num_weight(&stacka);
+		if (stack_length(&stacka) == 3)
+			sort_three_asc(&stacka, &stackb);
+		else if (stack_length(&stacka) == 5)
+			sort_five(stacka, stackb);
+		else
+			sort_stack(&stacka, &stackb);
+	}
 }
